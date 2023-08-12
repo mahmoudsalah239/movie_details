@@ -1,0 +1,30 @@
+<div class="text-center" *ngIf="loadding">
+    <app-spinner></app-spinner>
+</div>
+<div class="w-50 m-auto my-5" *ngIf="!loadding">
+    <div *ngIf="error" class=" alert alert-danger">
+        {{error}}
+    </div>
+    <form [formGroup]="LoginForm" (ngSubmit)="SubmitLoginForm(LoginForm)">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" formControlName="email" id="email" class="form-control bg-transparent"
+                placeholder="email">
+        </div>
+        <div *ngIf="email?.errors&&email?.touched" class="text-danger">
+            <small *ngIf="email?.errors?.['required']">email is required </small>
+            <small *ngIf="email?.errors?.['email']">email not match </small>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">password</label>
+            <input type="password" formControlName="password" id="email" class="form-control bg-transparent"
+                placeholder="password">
+        </div>
+        <div *ngIf="password?.errors&&password?.touched" class="text-danger">
+            <small *ngIf="password?.errors?.['required']">password is required </small>
+        </div>
+        <button type="submit" [disabled]="LoginForm.invalid" class="btn btn-primary">Login</button>
+    </form>
+</div>

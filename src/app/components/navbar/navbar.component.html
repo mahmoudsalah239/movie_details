@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <i class="fa-solid fa-tv fa-bounce fa-2x"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link px-2" routerLinkActive="active" aria-current="page" routerLink="home">Home</a>
+                </li>
+
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="movies">Movies</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="tvShows">tvShows</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="people">People</a>
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="about">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav me mb-2 mb-lg-0 gap-3">
+                <li class="nav-item" *ngIf="!isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="login">Login</a>
+                </li>
+                <!-- <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="setting">setting</a>
+                </li> -->
+                <li class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        setting
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                        <a class="dropdown-item" routerLink="setting">profile</a>
+                        <a class="dropdown-item" routerLink="setting/password">password</a>
+                        <a class="dropdown-item" routerLink="setting/role">role</a>
+                    </div>
+                </li>
+
+                <li class="nav-item" *ngIf="!isLogin">
+                    <a class="nav-link" routerLinkActive="active" routerLink="register">Register</a>
+                </li>
+                <li class="nav-item  bg-primary text-light fw-bold p-2 rounded rounded-2 " *ngIf="isLogin">
+                    {{username}}
+                </li>
+                <li class="nav-item" *ngIf="isLogin">
+                    <a class="nav-link" routerLinkActive="active" (click)="logOut()" routerLink="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

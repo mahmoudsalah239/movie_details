@@ -1,0 +1,14 @@
+<!-- {{homemovies|json}} -->
+<header class="vh-100 mb-4 d-flex align-items-end">
+    <div class="container">
+        <owl-carousel-o [options]=" customOptions">
+            <ng-container *ngFor="let slide of homemovies">
+                <ng-template carouselSlide [id]="slide.id">
+                    <!-- {{slide.title}} -->
+                    <a class="text-decoration-none text-light text-center" [routerLink]=" ['/moviedetails',slide.id]">
+                        <img [src]="imgprefix+slide.poster_path" [alt]="slide.alt" [title]="slide.title"></a>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div>
+</header>

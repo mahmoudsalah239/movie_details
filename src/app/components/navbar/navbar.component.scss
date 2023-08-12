@@ -1,0 +1,17 @@
+.active{
+    font-weight: bold;
+    color:#fff !important;
+    
+}
+.fa-tv{
+    color:rgb(87, 150, 87) !important;
+}
+.navbar-toggler{
+    color:#fff
+}   
+.navbar-toggler[aria-expanded="true"]{
+    border-color:green;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
+}

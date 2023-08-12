@@ -1,0 +1,48 @@
+<app-movies></app-movies>
+<div class="container">
+
+
+    <div class="row mt-5 ">
+        <div class="col-md-12 col-lg-4 d-flex align-items-center">
+            <div class="">
+                <div class="line w-25 mb-4"></div>
+                <h3>Top Trending Movies To Watch Right N ow</h3>
+                <p class="text-white-50"> most watched movies by day </p>
+                <div class="line w-75"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mt-2 " *ngFor="let movie of moviesData">
+            <div class="movie position-relative cursor-pointer">
+                <a class="text-decoration-none text-light text-center" [routerLink]=" ['/moviedetails',movie.id]">
+                    <img [src]="imgprefix+movie.poster_path" class="img-fluid" alt="">
+                    <h3 class="h6">{{movie.title}}{{movie.name}}</h3>
+                    <div class="vote  position-absolute top-0 end-0 fw-bold">
+                        <i class="fa-solid fa-star"></i> {{movie.vote_average}}
+
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-5">
+        <div class="col-md-12 col-lg-4 d-flex align-items-center">
+            <div class="">
+
+                <div class="line w-25 mb-4"></div>
+                <h3>Top Trending tv To Watch Right N ow</h3>
+                <p class="text-white-50"> most watched movies by day </p>
+                <div class="line w-75"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mt-2 " *ngFor="let movie of tvData">
+            <div class="movie position-relative ">
+                <img [src]="imgprefix+movie.poster_path" class="img-fluid" alt="">
+                <h3 class="h6">{{movie.title}}{{movie.name}}</h3>
+                <div class="vote  position-absolute top-0 end-0 fw-bold">
+                    <i class="fa-solid fa-star"></i> {{movie.vote_average}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

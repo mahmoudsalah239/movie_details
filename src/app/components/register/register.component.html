@@ -1,0 +1,67 @@
+<div class="text-center" *ngIf="loadding">
+    <app-spinner></app-spinner>
+</div>
+<div class="w-50 m-auto my-5" *ngIf="!loadding">
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <form [formGroup]="RegisterForm" (ngSubmit)="RegisterSubmitFrom(RegisterForm)">
+        <div>
+            <label for="username" class="form-label">userName:</label>
+            <input type="text" formControlName="username" [class.is-valid]="username?.valid && username?.touched"
+                [class.is-invalid]="username?.errors && username?.touched" class="form-control bg-transparent"
+                placeholder="first name ">
+            <div *ngIf="username?.errors&&username?.touched" class="text-danger">
+                <small *ngIf="username?.errors?.['required']">username is required </small>
+                <small *ngIf="username?.errors?.['minlength']">min length is 8 </small>
+                <small *ngIf="username?.errors?.['maxlength']">max length is 15</small>
+            </div>
+        </div>
+        <!-- <div>
+            <label for="last_name" class="form-label">LastName:</label>
+            <input type="text" formControlName="last_name" [class.is-valid]="lastName?.valid && lastName?.touched "
+                [class.is-invalid]="lastName?.errors && lastName?.touched" class="form-control bg-transparent"
+                class="form-control bg-transparent" placeholder="last name ">
+            <div *ngIf="lastName?.errors&&lastName?.touched" class="text-danger">
+                <small *ngIf="lastName?.errors?.['required']">lastName is required </small>
+                <small *ngIf="lastName?.errors?.['minlength']">min length is 8 </small>
+                <small *ngIf="lastName?.errors?.['maxlength']">max length is 15</small>
+            </div>
+        </div> -->
+
+        <!-- <div>
+            <label for="age" class="form-label">Age:</label>
+            <input type="text" formControlName="age" [class.is-valid]="age?.valid && age?.touched "
+                [class.is-invalid]="age?.errors&&age?.value && age?.touched" class="form-control bg-transparent"
+                placeholder=" age ">
+            <div *ngIf="age?.errors&&age?.touched" class="text-danger">
+                <small *ngIf="age?.errors?.['required']">age is required </small>
+                <small *ngIf="age?.errors?.['min']">min age is 18</small>
+                <small *ngIf="age?.errors?.['max']">max age is 50</small>
+                <small *ngIf="age?.errors?.['pattern']">age shoud be number</small>
+
+            </div>
+        </div> -->
+        <div>
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" formControlName="email" [class.is-valid]="email?.valid && email?.touched "
+                [class.is-invalid]="email?.errors && email?.touched" class="form-control bg-transparent"
+                placeholder=" email ">
+            <div *ngIf="email?.errors&&email?.touched" class="text-danger">
+                <small *ngIf="email?.errors?.['required']">email is required </small>
+                <small *ngIf="email?.errors?.['email']">email not match </small>
+
+            </div>
+        </div>
+        <div>
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" formControlName="password" [class.is-valid]="password?.valid && password?.touched "
+                [class.is-invalid]="password?.errors && password?.touched" class="form-control bg-transparent"
+                placeholder="Password  ">
+            <div *ngIf="password?.errors&&password?.touched" class="text-danger">
+                <small *ngIf="password?.errors?.['required']">password is required </small>
+                <small *ngIf="password?.errors?.['pattern']">password should contain at least 1 uppercase char </small>
+
+            </div>
+        </div>
+        <button type="submit" [disabled]="RegisterForm.invalid" class="btn btn-primary my-3">Register</button>
+    </form>
+</div>

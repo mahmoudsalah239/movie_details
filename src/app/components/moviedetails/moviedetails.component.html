@@ -1,0 +1,22 @@
+<h1>{{routeId}}</h1>
+<!-- {{findMovie|json}} -->
+<div class="row">
+    <div class="col-md-6 col-md-4">
+        <img [src]="imgprefix+findMovie.poster_path" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-6 col-md-4">
+        {{findMovie.original_title}}
+        <hr>
+        {{findMovie.overview}}
+        <hr>
+        vote_average: {{findMovie.vote_average}}
+        <hr>
+        release_date: {{findMovie.release_date}}
+        <hr>
+        <a class="text-decoration-none" [href]=" findMovie.homepage" target="_blank">watch now</a>
+        <!-- to watch: {{findMovie.homepage}} -->
+        <hr>
+
+        <button type="button" class="btn btn-primary" (click)="goBack()">go back</button>
+    </div>
+</div>
